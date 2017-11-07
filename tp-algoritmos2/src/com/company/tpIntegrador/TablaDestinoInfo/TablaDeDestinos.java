@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TablaDeDestinos {
     private List<RegistroDestino> destinos;
-    //agrego comentario
+
     public TablaDeDestinos(List<RegistroDestino> destinos) {
         this.destinos = destinos;
     }
