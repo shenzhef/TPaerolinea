@@ -11,14 +11,21 @@ public abstract class Viajero {
     private List<GeneradorDeMillas> generatorList;
     private List<Canjeable> canjeableList;
     private Integer acumulatedMiles;
+    private Integer wastedMiles;
+    private TipoViajero tipoViajero;
 
-    public Viajero(String name, Integer dni, List<GeneradorDeMillas> generatorList, List<Canjeable> canjeableList,
-                   Integer acumulatedMiles) {
+    public Viajero(String name, Integer dni, List<GeneradorDeMillas> generatorList, List<Canjeable> canjeableList, Integer acumulatedMiles, Integer wastedMiles, TipoViajero tipoViajero) {
         this.name = name;
         this.dni = dni;
         this.generatorList = generatorList;
         this.canjeableList = canjeableList;
         this.acumulatedMiles = acumulatedMiles;
+        this.wastedMiles = wastedMiles;
+        this.tipoViajero = tipoViajero;
+    }
+
+    public double calcularDescuento(){
+        return tipoViajero.calculateDiscount(this);
     }
 
     public String getName() {
@@ -60,5 +67,20 @@ public abstract class Viajero {
     public void setAcumulatedMiles(Integer acumulatedMiles) {
         this.acumulatedMiles = acumulatedMiles;
     }
-    public abstract Double calculateDiscount();
+
+    public Integer getWastedMiles() {
+        return wastedMiles;
+    }
+
+    public void setWastedMiles(Integer wastedMiles) {
+        this.wastedMiles = wastedMiles;
+    }
+
+    public TipoViajero getTipoViajero() {
+        return tipoViajero;
+    }
+
+    public void setTipoViajero(TipoViajero tipoViajero) {
+        this.tipoViajero = tipoViajero;
+    }
 }
