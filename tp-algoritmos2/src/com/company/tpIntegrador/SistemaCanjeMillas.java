@@ -8,7 +8,11 @@ import com.company.tpIntegrador.exceptions.UsuarioExistenteException;
 import com.company.tpIntegrador.milesGenerator.GeneradorDeMillas;
 import com.company.tpIntegrador.milesGenerator.Viaje;
 import com.company.tpIntegrador.travellers.Viajero;
+import com.google.gson.Gson;
 
+
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -98,11 +102,20 @@ public class SistemaCanjeMillas {
     //Busqueda Viajero DNI
     public Viajero buscarViajero(String nombre, Integer dni){
         for (Viajero v : this.viajeros){
-            if (v.getDni()==dni && v.getName()==nombre){
+            if (v.getDni().equals(dni) && v.getName().equals(nombre)){
                 return v;
             }
         }
         throw new NoSuchElementException("no existe el usuario");
     }
-    
+
+    public void registrarMillas(File jsonFile){
+        String json = jsonFile.toString();
+        Viajero viajero = new Gson().fromJson(json,Viajero.class);
+        GeneradorDeMillas generadorDeMillas = viajero.getGeneratorList().get(0);
+        if (this.viajeros.contains(viajero) && generadorDeMillas.getState()){
+
+        }
+
+    }
 }

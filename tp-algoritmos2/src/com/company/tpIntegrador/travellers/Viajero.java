@@ -14,6 +14,7 @@ public abstract class Viajero {
     private Integer wastedMiles;
     private TipoViajero tipoViajero;
 
+    //CONSTRUCTOR
     public Viajero(String name, Integer dni, List<GeneradorDeMillas> generatorList, List<Canjeable> canjeableList, Integer acumulatedMiles, Integer wastedMiles, TipoViajero tipoViajero) {
         this.name = name;
         this.dni = dni;
@@ -28,6 +29,7 @@ public abstract class Viajero {
         return tipoViajero.calculateDiscount(this);
     }
 
+    //GETTERS Y SETTERS
     public String getName() {
         return name;
     }
