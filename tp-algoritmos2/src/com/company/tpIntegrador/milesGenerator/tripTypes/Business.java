@@ -22,6 +22,7 @@ public class Business extends Viaje {
 
     public void setAdicionals(List<Adicional> adicionals) {
         this.adicionals = adicionals;
+
     }
 
     @Override
