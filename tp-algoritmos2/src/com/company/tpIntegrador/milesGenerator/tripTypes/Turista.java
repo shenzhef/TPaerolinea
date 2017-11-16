@@ -12,7 +12,7 @@ public class Turista extends Viaje {
     }
 
     @Override
-    public BigDecimal calculateMilesForType() {
-        return null;
+    public BigDecimal calculateMilesForType(BigDecimal milesFactor) {
+        return milesFactor;
     }
 }

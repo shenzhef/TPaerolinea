@@ -3,6 +3,7 @@ package com.company.tpIntegrador.travellers;
 import com.company.tpIntegrador.Canjeable;
 import com.company.tpIntegrador.milesGenerator.GeneradorDeMillas;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Viajero {
@@ -10,12 +11,12 @@ public class Viajero {
     private Integer dni;
     private List<GeneradorDeMillas> generatorList;
     private List<Canjeable> canjeableList;
-    private Integer acumulatedMiles;
-    private Integer wastedMiles;
+    private BigDecimal acumulatedMiles;
+    private BigDecimal wastedMiles;
     private TipoViajero tipoViajero;
 
     //CONSTRUCTOR
-    public Viajero(String name, Integer dni, List<GeneradorDeMillas> generadorDeMillas, List<Canjeable> canjeableList, Integer acumulatedMiles, Integer wastedMiles, TipoViajero tipoViajero) {
+    public Viajero(String name, Integer dni, List<GeneradorDeMillas> generadorDeMillas, List<Canjeable> canjeableList, BigDecimal acumulatedMiles, BigDecimal wastedMiles, TipoViajero tipoViajero) {
         this.name = name;
         this.dni = dni;
         this.generatorList = generadorDeMillas;
@@ -62,19 +63,19 @@ public class Viajero {
         this.canjeableList = canjeableList;
     }
 
-    public Integer getAcumulatedMiles() {
+    public BigDecimal getAcumulatedMiles() {
         return acumulatedMiles;
     }
 
-    public void setAcumulatedMiles(Integer acumulatedMiles) {
+    public void setAcumulatedMiles(BigDecimal acumulatedMiles) {
         this.acumulatedMiles = acumulatedMiles;
     }
 
-    public Integer getWastedMiles() {
+    public BigDecimal getWastedMiles() {
         return wastedMiles;
     }
 
-    public void setWastedMiles(Integer wastedMiles) {
+    public void setWastedMiles(BigDecimal wastedMiles) {
         this.wastedMiles = wastedMiles;
     }
 
