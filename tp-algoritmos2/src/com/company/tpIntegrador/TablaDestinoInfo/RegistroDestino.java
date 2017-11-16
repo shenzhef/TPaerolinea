@@ -8,9 +8,9 @@ public class RegistroDestino {
     private Lugar origen;
     private Lugar to;
     private BigDecimal costoMillas;
-    private Integer gananciaMillas;
+    private BigDecimal gananciaMillas;
 
-    public RegistroDestino(Lugar origen, Lugar to, BigDecimal costoMillas, Integer gananciaMillas) {
+    public RegistroDestino(Lugar origen, Lugar to, BigDecimal costoMillas, BigDecimal gananciaMillas) {
         this.origen = origen;
         this.to = to;
         this.costoMillas = costoMillas;
@@ -41,11 +41,11 @@ public class RegistroDestino {
         this.costoMillas = costoMillas;
     }
 
-    public Integer getGananciaMillas() {
+    public BigDecimal getGananciaMillas() {
         return gananciaMillas;
     }
 
-    public void setGananciaMillas(Integer gananciaMillas) {
+    public void setGananciaMillas(BigDecimal gananciaMillas) {
         this.gananciaMillas = gananciaMillas;
     }
 }

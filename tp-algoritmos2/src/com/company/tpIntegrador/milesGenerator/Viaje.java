@@ -23,10 +23,31 @@ public abstract class Viaje extends GeneradorDeMillas implements Canjeable {
         return to;
     }
 
+    //Getters de SUPER
     @Override
-    public BigDecimal calculateMiles(BigDecimal milesFactor) {
-        return calculateMilesForType();
+    public BigDecimal getMilesFactor() {
+        return super.getMilesFactor();
     }
 
-    public abstract BigDecimal calculateMilesForType();
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription();
+    }
+
+    @Override
+    public Boolean getState() {
+        return super.getState();
+    }
+
+    @Override
+    public BigDecimal calculateMiles(BigDecimal milesFactor) {
+        return calculateMilesForType(milesFactor);
+    }
+
+    public abstract BigDecimal calculateMilesForType(BigDecimal milesFactor);
 }

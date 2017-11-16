@@ -26,7 +26,7 @@ public class Business extends Viaje {
     }
 
     @Override
-    public BigDecimal calculateMilesForType() {
-        return null;
+    public BigDecimal calculateMilesForType(BigDecimal milesFactor) {
+        return milesFactor.multiply(new BigDecimal(1.5));
     }
 }
