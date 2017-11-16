@@ -10,7 +10,7 @@ public class Viajero {
     private Integer dni;
     private List<GeneradorDeMillas> generatorList;
     private List<Canjeable> canjeableList;
-    private Integer acumulatedMiles;
+    private Integer acumugit latedMiles;
     private Integer wastedMiles;
     private TipoViajero tipoViajero;
 
