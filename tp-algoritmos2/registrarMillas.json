@@ -1,0 +1,35 @@
+{  
+	"name":"John",
+	"Integer":40130035,
+	"generatorList": [
+		 {
+			"id":"asd",
+			"description":"asdasd123",
+			"state":true,
+			"milesFactor":100,
+			"chargedLiters":200
+		},
+		 {
+			"id":"asd",
+			"description":"asdasd123",
+			"state":true,
+			"milesFactor":100,
+			"consumo":200
+		}
+	],
+	"canjeableList":[
+		{
+			"name":"Heladera",
+			"description":"Sirve para guardar comida",
+			"milesCost":500,
+		},
+		{
+			"name":"Horno",
+			"description":"Sirve para calentar comida",
+			"milesCost":600,
+		},
+	],
+	"acumulatedMiles":2000,
+	"wastedMiles":3500,
+	"tipoViajero": "viajeroNormal"
+}

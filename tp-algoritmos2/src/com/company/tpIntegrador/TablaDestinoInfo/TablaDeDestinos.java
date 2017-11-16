@@ -19,4 +19,5 @@ public class TablaDeDestinos {
     public void setDestinos(List<RegistroDestino> destinos) {
         this.destinos = destinos;
     }
+
 }

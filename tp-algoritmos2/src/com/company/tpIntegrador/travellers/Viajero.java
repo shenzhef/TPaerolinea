@@ -5,7 +5,7 @@ import com.company.tpIntegrador.milesGenerator.GeneradorDeMillas;
 
 import java.util.List;
 
-public abstract class Viajero {
+public class Viajero {
     private String name;
     private Integer dni;
     private List<GeneradorDeMillas> generatorList;
@@ -14,10 +14,11 @@ public abstract class Viajero {
     private Integer wastedMiles;
     private TipoViajero tipoViajero;
 
-    public Viajero(String name, Integer dni, List<GeneradorDeMillas> generatorList, List<Canjeable> canjeableList, Integer acumulatedMiles, Integer wastedMiles, TipoViajero tipoViajero) {
+    //CONSTRUCTOR
+    public Viajero(String name, Integer dni, List<GeneradorDeMillas> generadorDeMillas, List<Canjeable> canjeableList, Integer acumulatedMiles, Integer wastedMiles, TipoViajero tipoViajero) {
         this.name = name;
         this.dni = dni;
-        this.generatorList = generatorList;
+        this.generatorList = generadorDeMillas;
         this.canjeableList = canjeableList;
         this.acumulatedMiles = acumulatedMiles;
         this.wastedMiles = wastedMiles;
@@ -28,6 +29,7 @@ public abstract class Viajero {
         return tipoViajero.calculateDiscount(this);
     }
 
+    //GETTERS Y SETTERS
     public String getName() {
         return name;
     }
