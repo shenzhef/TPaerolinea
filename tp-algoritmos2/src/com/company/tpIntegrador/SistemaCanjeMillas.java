@@ -12,6 +12,7 @@ import com.company.tpIntegrador.travellers.Viajero;
 import com.company.tpIntegrador.travellers.ViajeroFrecuente;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.stream.JsonReader;
 import com.sun.jndi.cosnaming.CNCtx;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
@@ -116,13 +117,9 @@ public class SistemaCanjeMillas {
     }
 
     //PUNTO 2 TERMINAR
-    public void registrarMillas(JsonElement jsonFile){
-        Viajero viajero = new Gson().fromJson(jsonFile,Viajero.class);
-        GeneradorDeMillas generadorDeMillas = viajero.getGeneratorList().get(0);
-        if (this.viajeros.contains(viajero) && generadorDeMillas.getState()){
-
-        }
-
+    public void registrarMillas(Gson gson,JsonReader jsonFile){
+        Viajero viajero = gson.fromJson(jsonFile,Viajero.class);
+        System.out.println(viajero.toString());
     }
 
     //FUNCION GANANCIA MILLAS POR VIAJES
@@ -133,9 +130,10 @@ public class SistemaCanjeMillas {
         //ACA SE FILTRA LA LISTA DE DESTINOS Y SE HACE EL GET 0 PARA OBTENER EL REGISTRO DE DESTINO QUE CORRESPONDE.
         RegistroDestino registroDestinoResultado =
                 destinoList.stream().filter(registroDestino -> registroDestino.getOrigen().equals(viaje.getFrom()))
-                .filter(registroDestino -> registroDestino.getTo().equals(viaje.getTo()))
-                .collect(Collectors.toList()).get(0);
+                        .filter(registroDestino -> registroDestino.getTo().equals(viaje.getTo()))
+                        .collect(Collectors.toList()).get(0);
         System.out.println(registroDestinoResultado.getOrigen().getName());
+
         //AHORA SE VA A CALCULAR LA GANANCIA DE MILLAS PARA EL VIAJERO QUE ENTRA POR PARAMETRO Y SE LE VA A SETEAR EL RESULTADO
         BigDecimal gananciaMillas = new BigDecimal(0);
         gananciaMillas = gananciaMillas.add((registroDestinoResultado.getGananciaMillas().multiply(viaje.calculateMiles(viaje.getMilesFactor()))));
@@ -172,11 +170,11 @@ public class SistemaCanjeMillas {
         }
     }
     public void canjeoDisponible(Viajero viajero) {
-            List<Canjeable>  canjeables= this.getCanjeables();
+        List<Canjeable>  canjeables= this.getCanjeables();
 
         List<Canjeable> canjeable= (List<Canjeable>) canjeables.stream().filter(e -> viajero.getAcumulatedMiles().compareTo(e.costoMillas() ) > 0).collect(Collectors.toList());
-        for (int i = 0; i < canjeable.size(); i++) {
-            System.out.println(canjeable.get(i).toString());  // ver como mostrar el objeto en si, sillon y viaje deberia decir.
+        for (Canjeable canje: canjeable) {
+            System.out.println(canje.mostrarCanjeable());
         }
-}
+    }
 }

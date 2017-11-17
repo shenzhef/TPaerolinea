@@ -30,4 +30,11 @@ public class Primera extends Viaje {
     public BigDecimal calculateMilesForType(BigDecimal milesFactor) {
         return milesFactor.multiply(new BigDecimal(2));
     }
+
+    @Override
+    public String toString() {
+        return "Primera{" +
+                "adicionals=" + adicionals +
+                '}';
+    }
 }

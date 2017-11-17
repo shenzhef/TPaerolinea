@@ -1,6 +1,6 @@
 {  
 	"name":"John",
-	"Integer":40130035,
+	"dni":40130035,
 	"generatorList": [
 		 {
 			"id":"asd",
@@ -21,13 +21,13 @@
 		{
 			"name":"Heladera",
 			"description":"Sirve para guardar comida",
-			"milesCost":500,
+			"milesCost":500
 		},
 		{
 			"name":"Horno",
 			"description":"Sirve para calentar comida",
-			"milesCost":600,
-		},
+			"milesCost":600
+		}
 	],
 	"acumulatedMiles":2000,
 	"wastedMiles":3500,
