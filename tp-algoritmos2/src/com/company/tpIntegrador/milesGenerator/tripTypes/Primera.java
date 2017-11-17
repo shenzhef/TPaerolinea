@@ -2,6 +2,7 @@ package com.company.tpIntegrador.milesGenerator.tripTypes;
 
 import com.company.tpIntegrador.Adicional;
 import com.company.tpIntegrador.Lugar;
+import com.company.tpIntegrador.TablaDestinoInfo.RegistroDestino;
 import com.company.tpIntegrador.milesGenerator.Viaje;
 
 import java.math.BigDecimal;
@@ -12,8 +13,8 @@ public class Primera extends Viaje {
 
     private List<Adicional> adicionals = new ArrayList<>(3);
 
-    public Primera(String id, String description, Boolean state, BigDecimal milesFactor, Lugar from, Lugar to, List<Adicional> adicionals) {
-        super(id, description, state, milesFactor, from, to);
+    public Primera(String id, String description, Boolean state, BigDecimal milesFactor, Lugar from, Lugar to, List<Adicional> adicionals, RegistroDestino registroDestino) {
+        super(id, description, state, milesFactor, from, to,registroDestino);
         this.adicionals = adicionals;
     }
 

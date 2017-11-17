@@ -24,20 +24,21 @@ public class Main {
         viajeros.add(juan);
         Lugar cancun = new Lugar("Cancun","deas");
         Lugar miami = new Lugar("Miami","das");
-        RegistroDestino destino1 = new RegistroDestino(cancun,miami,new BigDecimal(1300),new BigDecimal(200));
+        RegistroDestino destino1 = new RegistroDestino(cancun,miami,new BigDecimal(300),new BigDecimal(200));
         ArrayList<RegistroDestino> destinos = new ArrayList<>();
         destinos.add(destino1);
         TablaDeDestinos tablaDeDestinos1 = new TablaDeDestinos(destinos);
 
-        Viaje viajeEnPrimera = new Primera("da","descripcion",true,new BigDecimal(1.6),cancun,miami,null);
+        Viaje viajeEnPrimera = new Primera("da","descripcion",true,new BigDecimal(1.6),cancun,miami,null,destino1);
 
-        SistemaCanjeMillas sistemaCanjeMillas = new SistemaCanjeMillas(generadorDeMillas,viajeros,null,tablaDeDestinos1);
-sistemaCanjeMillas.gananciaMillasPorViaje(juan,viajeEnPrimera,tablaDeDestinos1);
 Producto sillon = new Producto("SILLON","sillon de dos plazas",new BigDecimal(400));
         ArrayList<Canjeable> canjeables = new ArrayList<>();
         canjeables.add(sillon);
+        canjeables.add(viajeEnPrimera);
+        SistemaCanjeMillas sistemaCanjeMillas = new SistemaCanjeMillas(generadorDeMillas,viajeros,canjeables,tablaDeDestinos1);
+        sistemaCanjeMillas.gananciaMillasPorViaje(juan,viajeEnPrimera,tablaDeDestinos1);
 
-sistemaCanjeMillas.canjearMillasPorProducto(juan,sillon);
-
+    //    sistemaCanjeMillas.canjearMillasPorProducto(juan,sillon);
+sistemaCanjeMillas.canjeoDisponible(juan);
     }
 }

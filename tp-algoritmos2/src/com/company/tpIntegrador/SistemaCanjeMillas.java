@@ -151,27 +151,32 @@ public class SistemaCanjeMillas {
         if (producto.getMilesCost().compareTo(viajero.getAcumulatedMiles() ) < 0) {
             viajero.setAcumulatedMiles(viajero.getAcumulatedMiles().subtract(producto.getMilesCost()));
             canjeables.add(producto);
-            this.canjeables.remove(producto);
+            this.getCanjeables().remove(producto);
             viajero.setCanjeableList(canjeables);
         }
         if (producto.getMilesCost().compareTo(new BigDecimal(1000)) > 0 ) {
             viajero.setTipoViajero(new ViajeroFrecuente());
         }
     }
-    public void canjearMillasViaje(Viajero viajero, RegistroDestino registroDestino,Viaje viaje)
+    public void canjearMillasViaje(Viajero viajero,Viaje viaje)
     {
         ArrayList<Canjeable> canjeables = new ArrayList<>();
-        if (registroDestino.getCostoMillas().compareTo(viajero.getAcumulatedMiles()) < 0 ) {
-            viajero.setAcumulatedMiles(viajero.getAcumulatedMiles().subtract(registroDestino.getCostoMillas()));
+        if (viaje.getRegistroDestino().getCostoMillas().compareTo(viajero.getAcumulatedMiles()) < 0 ) {
+            viajero.setAcumulatedMiles(viajero.getAcumulatedMiles().subtract(viaje.getRegistroDestino().getCostoMillas()));
             canjeables.add(viaje);
             this.canjeables.remove(viaje);
             viajero.setCanjeableList(canjeables);
         }
-        if (registroDestino.getCostoMillas().compareTo(new BigDecimal(1000)) > 0 ) {
+        if (viaje.getRegistroDestino().getCostoMillas().compareTo(new BigDecimal(1000)) > 0 ) {
             viajero.setTipoViajero(new ViajeroFrecuente());
         }
     }
     public void canjeoDisponible(Viajero viajero) {
+            List<Canjeable>  canjeables= this.getCanjeables();
 
-    }
+        List<Canjeable> canjeable= (List<Canjeable>) canjeables.stream().filter(e -> viajero.getAcumulatedMiles().compareTo(e.costoMillas() ) > 0).collect(Collectors.toList());
+        for (int i = 0; i < canjeable.size(); i++) {
+            System.out.println(canjeable.get(i).toString());  // ver como mostrar el objeto en si, sillon y viaje deberia decir.
+        }
+}
 }
