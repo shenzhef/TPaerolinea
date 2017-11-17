@@ -33,6 +33,11 @@ public class Producto implements Canjeable {
         return milesCost;
     }
 
+    @Override
+    public BigDecimal costoMillas() {
+        return this.getMilesCost();
+    }
+
     public void setMilesCost(BigDecimal milesCost) {
         this.milesCost = milesCost;
     }
