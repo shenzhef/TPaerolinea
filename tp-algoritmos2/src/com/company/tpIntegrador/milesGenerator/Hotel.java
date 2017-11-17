@@ -18,6 +18,14 @@ public class Hotel extends GeneradorDeMillas {
         this.nightsNumber = nightsNumber;
     }
 
+    public Hotel(){
+
+    }
+
+    public void setNightsNumber(BigDecimal nightsNumber) {
+        this.nightsNumber = nightsNumber;
+    }
+
     public BigDecimal getNightsNumber() {
         return nightsNumber;
     }

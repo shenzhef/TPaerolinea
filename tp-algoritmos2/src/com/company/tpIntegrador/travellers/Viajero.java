@@ -11,15 +11,16 @@ public class Viajero {
     private Integer dni;
     private List<GeneradorDeMillas> generatorList;
     private List<Canjeable> canjeableList;
-
-
-
     private BigDecimal acumulatedMiles;
     private BigDecimal wastedMiles;
-
     private TipoViajero tipoViajero;
 
-    //CONSTRUCTOR
+    //CONSTRUCTORES
+
+    public Viajero(){
+
+    }
+
     public Viajero(String name, Integer dni, List<GeneradorDeMillas> generadorDeMillas, List<Canjeable> canjeableList, BigDecimal acumulatedMiles, BigDecimal wastedMiles, TipoViajero tipoViajero) {
         this.name = name;
         this.dni = dni;
@@ -89,5 +90,18 @@ public class Viajero {
 
     public void setTipoViajero(TipoViajero tipoViajero) {
         this.tipoViajero = tipoViajero;
+    }
+
+    @Override
+    public String toString() {
+        return "Viajero{" +
+                "name='" + name + '\'' +
+                ", dni=" + dni +
+                ", generatorList=" + generatorList +
+                ", canjeableList=" + canjeableList +
+                ", acumulatedMiles=" + acumulatedMiles +
+                ", wastedMiles=" + wastedMiles +
+                ", tipoViajero=" + tipoViajero +
+                '}';
     }
 }

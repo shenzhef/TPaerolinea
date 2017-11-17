@@ -8,6 +8,11 @@ public abstract class GeneradorDeMillas {
     private Boolean state; //CAMBIAR EL TIPO DEL ESTADO AHORA LO DEJO EN BOOLEAN PARA HACERLO MAS CLARO
     private BigDecimal milesFactor;
 
+    //CONSTRUCTORES
+    public GeneradorDeMillas(){
+
+    }
+
     public GeneradorDeMillas(String id, String description, Boolean state, BigDecimal milesFactor) {
         this.id = id;
         this.description = description;
@@ -15,6 +20,7 @@ public abstract class GeneradorDeMillas {
         this.milesFactor = milesFactor;
     }
 
+    //GETTERS Y SETTERS
     public String getId() {
         return id;
     }

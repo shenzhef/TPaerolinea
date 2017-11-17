@@ -10,6 +10,7 @@ public abstract class Viaje extends GeneradorDeMillas implements Canjeable {
     private Lugar from;
     private Lugar to;
     private RegistroDestino registroDestino;  // lo agrege porque sino nose el costo en millas del viaje y en el canjeable tengo el metodo q me devuelve el costo
+
     public Viaje(String id, String description, Boolean state, BigDecimal milesFactor, Lugar from, Lugar to,RegistroDestino registroDestino) {
         super(id, description, state, milesFactor);
         this.from = from;
@@ -17,7 +18,9 @@ public abstract class Viaje extends GeneradorDeMillas implements Canjeable {
         this.registroDestino = registroDestino;
     }
 
+    public Viaje(){
 
+    }
 
     public Lugar getFrom() {
         return from;
@@ -30,6 +33,11 @@ public abstract class Viaje extends GeneradorDeMillas implements Canjeable {
     @Override
     public BigDecimal costoMillas() {
         return this.registroDestino.getCostoMillas();
+    }
+
+    @Override
+    public String mostrarCanjeable() {
+        return this.toString();
     }
 
     //Getters de SUPER
@@ -62,5 +70,14 @@ public abstract class Viaje extends GeneradorDeMillas implements Canjeable {
 
     public RegistroDestino getRegistroDestino() {
         return registroDestino;
+    }
+
+    @Override
+    public String toString() {
+        return "Viaje{" +
+                "from=" + from +
+                ", to=" + to +
+                ", registroDestino=" + registroDestino +
+                '}';
     }
 }

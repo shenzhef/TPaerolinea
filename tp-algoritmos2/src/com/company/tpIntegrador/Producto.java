@@ -41,4 +41,18 @@ public class Producto implements Canjeable {
     public void setMilesCost(BigDecimal milesCost) {
         this.milesCost = milesCost;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", milesCost=" + milesCost +
+                '}';
+    }
+
+    @Override
+    public String mostrarCanjeable() {
+        return this.toString();
+    }
 }

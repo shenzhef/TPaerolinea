@@ -10,6 +10,18 @@ public class Consumo extends GeneradorDeMillas {
         this.consumo = consumo;
     }
 
+    public Consumo (){
+        super();
+    }
+
+    public BigDecimal getConsumo() {
+        return consumo;
+    }
+
+    public void setConsumo(BigDecimal consumo) {
+        this.consumo = consumo;
+    }
+
     @Override
     public BigDecimal calculateMiles(BigDecimal milesFactor) {
         return this.consumo.multiply(milesFactor);
